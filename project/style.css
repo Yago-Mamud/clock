@@ -31,3 +31,10 @@ html {
 	color: var(--text1);
 	font-family:'main';
 }
+/* CONTAINERS */
+.time {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	font-size: 2rem;
+}
