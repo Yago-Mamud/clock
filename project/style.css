@@ -15,9 +15,10 @@ html {
 }
 :root {
 	/* BACKGROUDNS */
-	--backgroundMain: #F3F3F3;
+	--background1: #F3F3F3;
+	--background2: #FFFFFF;
 	/* SOLID COLORS */
-	--green: #27AE60;
+	--black: #3E3E3E;
 	--green2: #239654;
 	/* TEXT */
 	--text1: #000000;
@@ -31,10 +32,58 @@ html {
 	color: var(--text1);
 	font-family:'main';
 }
+/* INTERACTION */
+button {
+	background-color: var(--background2);
+	border: 0.5rem solid var(--black); 
+	border-radius: 12px;
+	font-size: 2rem;
+	padding: 2rem;
+}
+button:hover {
+	background-color: var(--background1);
+	cursor: pointer;
+}
 /* CONTAINERS */
+main, section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+main {
+	min-height: 100vh;
+	background-color: var(--background1);
+}
+section {
+	background-color: var(--background2);
+	padding: 2rem; 
+	border: 0.5rem solid var(--black);
+	border-radius: 12px;
+}
 .time {
 	display: flex;
 	flex-direction: row;
 	gap: 2rem;
 	font-size: 2rem;
+	background-color: var(--background2);
+	min-width: 20rem;
+	min-height: 10rem;
+	justify-content: space-between;
+	position: relative;
+}
+#hours, #minutes, #seconds {
+	position: absolute;
+}
+#hours {
+	left: 10%;
+}
+#minutes {
+	left: 40%;
+}#seconds {
+	left: 70%;
+}
+.chrono {
+	min-width: 30rem;
 }
