@@ -1,37 +1,47 @@
+//grabs html elements
 const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
+//sets the current time
 const timer = setInterval(
 	function() {
-		const teste = new Date();
-		if ( teste.getHours() < 10 ) {
-			hours.innerText = "0"+teste.getHours();	
+		const currentTime = new Date();
+		if ( currentTime.getHours() < 10 ) {
+			hours.innerText = "0"+currentTime.getHours();	
 		} else {
-			hours.innerText = teste.getHours();	
+			hours.innerText = currentTime.getHours();	
 		}
 		//
-		if ( teste.getMinutes() < 10 ) {
-			minutes.innerText = "0"+teste.getMinutes();
+		if ( currentTime.getMinutes() < 10 ) {
+			minutes.innerText = "0"+currentTime.getMinutes();
 		} else {
-			minutes.innerText = teste.getMinutes();
+			minutes.innerText = currentTime.getMinutes();
 		}
 		//
-		if ( teste.getSeconds() < 10 ) {
-			seconds.innerText = "0"+teste.getSeconds();	
+		if ( currentTime.getSeconds() < 10 ) {
+			seconds.innerText = "0"+currentTime.getSeconds();	
 		} else {
-			seconds.innerText = teste.getSeconds();
+			seconds.innerText = currentTime.getSeconds();
 		}
 	}, 1000);
 	
 //
-const sw = document.getElementById("stopwatch");
 var secondCounter = 0;
-function buttonHandler() {
-	const stopwatch = setInterval(
-		function() {
+const sw = document.getElementById("stopwatch");
+const start = document.getElementById("start");
+
+var isTimerActive = false;
+
+start.addEventListener("click", () => {
+	if (isTimerActive === false) {
+		function stopwatchHandler() {
 			secondCounter += 1;
 			sw.innerText = secondCounter;
-		}, 1000);
-}
-const start = document.getElementById("start");
-start.addEventListener("click", buttonHandler);
+		}
+		isTimerActive = !isTimerActive;
+		const stopwatch = setInterval(stopwatchHandler, 1000);
+	} else {
+		clearInterval(stopwatchHandler);
+		return;
+	}
+});
