@@ -1,4 +1,4 @@
-//grabs html elements
+//gets html elements
 const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
@@ -25,23 +25,28 @@ const timer = setInterval(
 		}
 	}, 1000);
 	
-//
+//stopwatch
 var secondCounter = 0;
 const sw = document.getElementById("stopwatch");
 const start = document.getElementById("start");
 
-var isTimerActive = false;
+let isTimerActive = false;
 
+//stopwatch variable has to be outside so it wont mess with the scope
+let stopwatch
+
+//handles the stopwatch
 start.addEventListener("click", () => {
-	if (isTimerActive === false) {
-		function stopwatchHandler() {
+	if (!isTimerActive) {
+		isTimerActive = !isTimerActive;
+		stopwatch = setInterval( () => {
 			secondCounter += 1;
 			sw.innerText = secondCounter;
-		}
-		isTimerActive = !isTimerActive;
-		const stopwatch = setInterval(stopwatchHandler, 1000);
+		}, 1000);
+		start.innerHTML = "Stop"
 	} else {
-		clearInterval(stopwatchHandler);
-		return;
+		isTimerActive = !isTimerActive;
+		clearInterval(stopwatch);
+		start.innerHTML = "Start"
 	}
 });
