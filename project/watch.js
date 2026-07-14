@@ -24,29 +24,3 @@ const timer = setInterval(
 			seconds.innerText = currentTime.getSeconds();
 		}
 	}, 1000);
-	
-//stopwatch
-var secondCounter = 0;
-const sw = document.getElementById("stopwatch");
-const start = document.getElementById("start");
-
-let isTimerActive = false;
-
-//stopwatch variable has to be outside so it wont mess with the scope
-let stopwatch
-
-//handles the stopwatch
-start.addEventListener("click", () => {
-	if (!isTimerActive) {
-		isTimerActive = !isTimerActive;
-		stopwatch = setInterval( () => {
-			secondCounter += 1;
-			sw.innerText = secondCounter;
-		}, 1000);
-		start.innerHTML = "Stop"
-	} else {
-		isTimerActive = !isTimerActive;
-		clearInterval(stopwatch);
-		start.innerHTML = "Start"
-	}
-});

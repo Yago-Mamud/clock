@@ -73,15 +73,15 @@ section {
 	justify-content: space-between;
 	position: relative;
 }
-#hours, #minutes, #seconds {
+#hours, #minutes, #seconds, #stopwatchM, #stopwatchS, #stopwatchMS {
 	position: absolute;
 }
-#hours {
+#hours, #stopwatchM {
 	left: 10%;
 }
-#minutes {
+#minutes, #stopwatchS {
 	left: 40%;
-}#seconds {
+}#seconds, #stopwatchMS {
 	left: 70%;
 }
 .chrono {
