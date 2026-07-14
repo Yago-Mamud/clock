@@ -24,6 +24,10 @@ html {
 	--text1: #000000;
 	--text2: #E0E0E0;
 }
+/* TEXT */
+.clock h1 {
+	font-size: 100px;
+}
 /* GENERAL */
 * {
 	padding: 0;
@@ -44,6 +48,11 @@ button:hover {
 	background-color: var(--background1);
 	cursor: pointer;
 }
+/* ANIMATIONS */
+@keyframes move{
+	from {background-position: 0 0;}
+	to {background-position: 64px 0;}
+}
 /* CONTAINERS */
 main, section {
 	display: flex;
@@ -54,36 +63,35 @@ main, section {
 }
 main {
 	min-height: 100vh;
-	background-color: var(--background1);
+	background-image: url('assets/images/background.png');
+	background-size: 64px;
+	background-repeat: repeat;
+	animation: move 5s linear infinite;
 }
 section {
 	background-color: var(--background2);
 	padding: 2rem; 
 	border: 0.5rem solid var(--black);
 	border-radius: 12px;
+	width: 95%;
+	height: 90vh;
+	box-shadow: 0px 0px 12px #707070;
 }
 .time {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	gap: 2rem;
 	font-size: 2rem;
+	font-variant-numeric: tabular-nums;
 	background-color: var(--background2);
 	min-width: 20rem;
 	min-height: 10rem;
 	justify-content: space-between;
 	position: relative;
 }
-#hours, #minutes, #seconds, #stopwatchM, #stopwatchS, #stopwatchMS {
-	position: absolute;
-}
-#hours, #stopwatchM {
-	left: 10%;
-}
-#minutes, #stopwatchS {
-	left: 40%;
-}#seconds, #stopwatchMS {
-	left: 70%;
-}
-.chrono {
-	min-width: 30rem;
+.buttonContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
 }

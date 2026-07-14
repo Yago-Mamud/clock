@@ -22,6 +22,7 @@ start.addEventListener("click", () => {
 	if (!isTimerActive) {
 		isTimerActive = !isTimerActive;
 		stopwatch = setInterval( () => {
+			counterMS += 5;
 			//Manages minutes
 			if (counterS>59) {
 				counterS = 0;
@@ -31,14 +32,12 @@ start.addEventListener("click", () => {
 				stopwatchS.innerText = String(counterS).padStart(2,"0");
 			}
 			//Manages seconds
-			if (counterMS>999) {
+			if (counterMS>=1000) {
 				counterMS = 0;
 				counterS+=1
 				stopwatchS.innerText = String(counterS).padStart(2,"0");
 			}
 			//Manages milliseconds
-			//milliseconds have to be updated last so the stopwatch won't flicker
-			counterMS += 5;
 			stopwatchMS.innerText = String(counterMS).padStart(3,"0");
 		}, 5);
 	//Manages the stop button
