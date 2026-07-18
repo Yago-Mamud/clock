@@ -9,24 +9,30 @@
 <body>
 	<main>
 		<section>
-			<div class="time clock">
-				<h1 id="hours">0</h1>
-				<h1>:</h1>
-				<h1 id="minutes">0</h1>
-				<h1>:</h1>
-				<h1 id="seconds">0</h1>
+			<div>
+				<div class="time clock">
+					<h1 id="hours">0</h1>
+					<h1>:</h1>
+					<h1 id="minutes">0</h1>
+					<h1>:</h1>
+					<h1 id="seconds">0</h1>
+				</div>
+				<div class="time">
+					<h1 id="stopwatchM">00</h1>
+					<h1>:</h1>
+					<h1 id="stopwatchS">00</h1>
+					<h1>:</h1>
+					<h1 id="stopwatchMS">000</h1>
+				</div>
+				<div class="buttonContainer">
+					<button id="start">Start</button>
+					<button id="lap">Lap</button>
+					<button id="reset">Reset</button>
+				</div>
 			</div>
-			<div class="time">
-				<h1 id="stopwatchM">00</h1>
-				<h1>:</h1>
-				<h1 id="stopwatchS">00</h1>
-				<h1>:</h1>
-				<h1 id="stopwatchMS">000</h1>
-			</div>
-			<div class="buttonContainer">
-				<button id="start">Start</button>
-				<button id="lap">Lap</button>
-				<button id="reset">Reset</button>
+			<div>
+				<div id="lapContainer" class="time clock">	
+				</div>
 			</div>
 		</section>
 	</main>
