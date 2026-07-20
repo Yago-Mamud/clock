@@ -28,6 +28,9 @@ html {
 .clock h1 {
 	font-size: 100px;
 }
+.lapClass {
+	font-size: 32px;
+}
 /* GENERAL */
 * {
 	padding: 0;
