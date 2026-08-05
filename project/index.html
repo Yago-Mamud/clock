@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<header>
+		<p class="swapButton" data-target="clockContainer">Clock</p>
+		<p class="swapButton" data-target="stopwatchContainer">Stopwatch</p>
+	</header>
 	<main>
-		<section>
+		<!-- Clock container -->
+		<div id="clockContainer" class="clockContainer" data-vis="clockContainer">
+			<div class="time">
+				<h1 id="hours">0</h1>
+				<h1>:</h1>
+				<h1 id="minutes">0</h1>
+				<h1>:</h1>
+				<h1 id="seconds">0</h1>
+			</div>
+		</div>
+		<!-- Stopwatch container -->
+		<div id="stopwatchContainer" class="clockContainer notVisible" data-vis="stopwatchContainer">
 			<div>
-				<div class="time clock">
-					<h1 id="hours">0</h1>
-					<h1>:</h1>
-					<h1 id="minutes">0</h1>
-					<h1>:</h1>
-					<h1 id="seconds">0</h1>
-				</div>
 				<div class="time">
 					<h1 id="stopwatchM">00</h1>
 					<h1>:</h1>
@@ -30,13 +38,12 @@
 					<button id="reset">Reset</button>
 				</div>
 			</div>
-			<div>
-				<div id="lapContainer" class="time clock">	
-				</div>
+			<div id="lapContainer" class="time clock">	
 			</div>
-		</section>
+		</div>
 	</main>
-<script src="watch.js"></script>
-<script src="stopwatch.js"></script>
+<script src="scripts/watch.js"></script>
+<script src="scripts/stopwatch.js"></script>
+<script src="scripts/visibilityHandler.js"></script>
 </body>
 </html>

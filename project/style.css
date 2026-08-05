@@ -25,9 +25,6 @@ html {
 	--text2: #E0E0E0;
 }
 /* TEXT */
-.clock h1 {
-	font-size: 100px;
-}
 .lapClass {
 	font-size: 32px;
 }
@@ -39,42 +36,54 @@ html {
 	color: var(--text1);
 	font-family:'main';
 }
-/* INTERACTION */
-button {
-	background-color: var(--background2);
-	border: 0.5rem solid var(--black); 
-	border-radius: 12px;
-	font-size: 2rem;
-	padding: 2rem;
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background-color: #7d9fba;
+	background-image: linear-gradient(to bottom right, #7d9fba, #5d7a91, #7d9fba);
 }
-button:hover {
-	background-color: var(--background1);
+/* HEADER */
+header {
+	min-height: 6rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 1rem 0 1rem;
+	margin: 0 1rem 0 1rem;
+	position: sticky;
+	top: 0;
+	background:transparent;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #edf7ff, #c5d7e6, #edf7ff) 1;
+	gap: 2.5rem;
+}
+.swapButton {
+	font-size: 2.5rem;
+	transition: 0.1s;
+}
+.swapButton:hover {
+	transform: scale(1.1);
 	cursor: pointer;
 }
-/* ANIMATIONS */
-@keyframes move{
-	from {background-position: 0 0;}
-	to {background-position: 64px 0;}
-}
 /* CONTAINERS */
-main, section {
-	justify-content: center;
-	align-items: center;
-}
 main {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background-image: url('assets/images/background.png');
-	background-size: 64px;
-	background-repeat: repeat;
-	animation: move 5s linear infinite;
+	flex: 1;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	min-height: 0;
 }
 section {
-	display: grid;
-	grid-template-columns: 60% 1fr;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	gap: 2rem;
-	background-color: var(--background2);
 	padding: 2rem; 
 	border: 0.5rem solid var(--black);
 	border-radius: 12px;
@@ -89,20 +98,72 @@ section {
 	gap: 0.5rem;
 	font-size: 2rem;
 	font-variant-numeric: tabular-nums;
-	background-color: var(--background2);
 	min-width: 20rem;
 	min-height: 10rem;
 	justify-content: center;
 	position: relative;
+}
+.time h1 {
+	font-size: 6rem;
+}
+.time * {
+	background-image: linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent; 
 }
 .buttonContainer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 2rem;
 }
+.clockContainer {
+	display: grid;
+	border: solid 2px transparent;
+	border-radius: 8px; 
+	background:
+		linear-gradient(to bottom right, #405769, #344757, #405769) padding-box,
+		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
+	box-shadow: 0px 0px 12px #303030;
+	padding: 2rem;
+	width: 40%;
+	height: 60%;
+}
+#stopwatchContainer {
+	height: 80%;
+}
 #lapContainer {
 	display: flex;
 	flex-direction: column;
-	max-height: 30rem;
-	overflow: auto;
+	height: 100%;
+	overflow-y: scroll;
+	font-size: 0.5rem;
+}
+.SWLContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	height: calc( 100% - 10rem);
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}
+.SWLContainer div {
+	background-color: red;
+}
+/* INTERACTION */
+button {
+	background-color: var(--background2);
+	border: 0.5rem solid var(--black); 
+	border-radius: 12px;
+	font-size: 2rem;
+	padding: 2rem;
+}
+button:hover {
+	background-color: var(--background1);
+	cursor: pointer;
+}
+/*has to be at the end to overwrite the rest*/
+.notVisible {
+	display: none !important;
 }
