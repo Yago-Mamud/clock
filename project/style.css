@@ -136,6 +136,7 @@ section {
 #lapContainer {
 	display: flex;
 	flex-direction: column;
+	justify-content: start;
 	height: 100%;
 	overflow-y: scroll;
 	font-size: 0.5rem;
@@ -153,14 +154,17 @@ section {
 }
 /* INTERACTION */
 button {
-	background-color: var(--background2);
-	border: 0.5rem solid var(--black); 
+	border: solid 2px transparent;
+	border-radius: 8px; 
+	background:
+		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) padding-box,
+		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
 	border-radius: 12px;
 	font-size: 2rem;
 	padding: 2rem;
 }
 button:hover {
-	background-color: var(--background1);
+	opacity: 0.7;
 	cursor: pointer;
 }
 /*has to be at the end to overwrite the rest*/
