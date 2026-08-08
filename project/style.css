@@ -120,25 +120,34 @@ section {
 }
 .clockContainer {
 	display: grid;
+}
+.container {
 	border: solid 2px transparent;
 	border-radius: 8px; 
 	background:
 		linear-gradient(to bottom right, #405769, #344757, #405769) padding-box,
 		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
 	box-shadow: 0px 0px 12px #303030;
+	padding: 4rem;
+}
+#clockContainer {
 	padding: 2rem;
 	width: 40%;
 	height: 60%;
 }
 #stopwatchContainer {
 	height: 80%;
+	grid-template-columns: 60% 1fr;
+	gap: 2rem;
+	align-items: center;
+	padding: 2rem;
 }
 #lapContainer {
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	height: 100%;
-	overflow-y: scroll;
+	max-height: 30rem;
+	overflow-y: auto;
 	font-size: 0.5rem;
 }
 .SWLContainer {

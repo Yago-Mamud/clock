@@ -13,7 +13,7 @@
 	</header>
 	<main>
 		<!-- Clock container -->
-		<div id="clockContainer" class="clockContainer" data-vis="clockContainer">
+		<div id="clockContainer" class="clockContainer container" data-vis="clockContainer">
 			<div class="time">
 				<h1 id="hours">0</h1>
 				<h1>:</h1>
@@ -24,7 +24,7 @@
 		</div>
 		<!-- Stopwatch container -->
 		<div id="stopwatchContainer" class="clockContainer notVisible" data-vis="stopwatchContainer">
-			<div>
+			<div class="container">
 				<div class="time">
 					<h1 id="stopwatchM">00</h1>
 					<h1>:</h1>
@@ -38,7 +38,8 @@
 					<button id="reset">Reset</button>
 				</div>
 			</div>
-			<div id="lapContainer" class="time clock">	
+			<div class="container">
+				<div id="lapContainer" class="time clock"></div>
 			</div>
 		</div>
 	</main>

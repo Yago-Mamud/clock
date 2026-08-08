@@ -59,7 +59,8 @@ lap.addEventListener("click", () => {
 	const newMark = document.createElement("p");
 	newMark.classList.add("lapClass");
 	newMark.textContent = stopwatchM.innerText + ":" + stopwatchS.innerText + ":" + stopwatchMS.innerText;
-	lapContainer.appendChild(newMark);
+	lapContainer.prepend(newMark);
+	lapContainer.scrollTop = 0;
 });
 
 //RESET HANDLER
@@ -75,7 +76,7 @@ reset.addEventListener("click", () => {
 		timePassed = 0;
 	}
 	//If the stopwatch is currently running
-	if (isTimerActive = true) {
+	if (isTimerActive === true) {
 		isTimerActive = !isTimerActive;
 		clearInterval(stopwatch);
 		start.innerHTML = "Start"
