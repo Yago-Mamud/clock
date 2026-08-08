@@ -10,6 +10,7 @@
 	<header>
 		<p class="swapButton" data-target="clockContainer">Clock</p>
 		<p class="swapButton" data-target="stopwatchContainer">Stopwatch</p>
+		<p class="swapButton" data-target="timerContainer">Timer</p>
 	</header>
 	<main>
 		<!-- Clock container -->
@@ -42,9 +43,19 @@
 				<div id="lapContainer" class="time clock"></div>
 			</div>
 		</div>
+		<!-- Timer container -->
+		<div id="timerContainer" class="clockContainer notVisible" data-vis="timerContainer">
+			<div class="container time">
+				<h1 id="timerMinute">00</h1>
+				<h1>:</h1>
+				<h1 id="timerSecond">10</h1>
+				<button id="timerButton">start</button>
+			</div>
+		</div>
 	</main>
 <script src="scripts/watch.js"></script>
 <script src="scripts/stopwatch.js"></script>
 <script src="scripts/visibilityHandler.js"></script>
+<script src="scripts/timer.js"></script>
 </body>
 </html>
