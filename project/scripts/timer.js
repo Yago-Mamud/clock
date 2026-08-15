@@ -49,8 +49,18 @@ const timeButtons = document.querySelectorAll(".timeAdder");
 timeButtons.forEach((tButt) => {
 	tButt.addEventListener("click", () => {
 		let buttonValue = Number(tButt.getAttribute("data-timeValue"));
-		let currentTimeValue = Number(timerSecond.innerHTML);
-		let timeToAdd = currentTimeValue + buttonValue;
-		timerSecond.innerHTML = String(timeToAdd).padStart(2,"0");
+		let secondNumberValue = Number(timerSecond.innerHTML);
+		let minuteNumberValue = Number(timerMinute.innerHTML);
+		
+		let secondToAdd = secondNumberValue + buttonValue;
+		
+		if (secondToAdd > 59) {
+			let remainingSeconds = (secondToAdd/60)
+			minuteNumberValue = Math.floor(minuteNumberValue + remainingSeconds);
+			secondToAdd =+ secondToAdd % 60
+		}
+		
+		timerMinute.innerHTML = String(minuteNumberValue).padStart(2,"0");
+		timerSecond.innerHTML = String(secondToAdd).padStart(2,"0");
 	});
 });
