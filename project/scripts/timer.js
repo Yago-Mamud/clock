@@ -64,3 +64,11 @@ timeButtons.forEach((tButt) => {
 		timerSecond.innerHTML = String(secondToAdd).padStart(2,"0");
 	});
 });
+
+//Timer reset handler
+const timerResetButton = document.getElementById("timerResetButton");
+
+timerResetButton.addEventListener("click", () => {
+	timerMinute.innerHTML = "00"
+	timerSecond.innerHTML = "00"
+});
