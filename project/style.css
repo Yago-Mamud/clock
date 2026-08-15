@@ -106,7 +106,7 @@ section {
 .time h1 {
 	font-size: 6rem;
 }
-.time * {
+.time h1, .time p {
 	background-image: linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff);
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -129,6 +129,9 @@ section {
 		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
 	box-shadow: 0px 0px 12px #303030;
 	padding: 4rem;
+}
+.c {
+	flex-direction: column;
 }
 #clockContainer {
 	padding: 2rem;
@@ -175,6 +178,9 @@ button {
 button:hover {
 	opacity: 0.7;
 	cursor: pointer;
+}
+#timerButton {
+	width: 80%;
 }
 /*has to be at the end to overwrite the rest*/
 .notVisible {

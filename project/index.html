@@ -45,10 +45,17 @@
 		</div>
 		<!-- Timer container -->
 		<div id="timerContainer" class="clockContainer notVisible" data-vis="timerContainer">
-			<div class="container time">
-				<h1 id="timerMinute">01</h1>
-				<h1>:</h1>
-				<h1 id="timerSecond">00</h1>
+			<div class="container time c">
+				<div class="time">
+					<h1 id="timerMinute">00</h1>
+					<h1>:</h1>
+					<h1 id="timerSecond">10</h1>
+				</div>
+				<div class="buttonContainer">
+					<button class="timeAdder" data-timeValue="30">00:30</button>
+					<button class="timeAdder" data-timeValue="60">01:00</button>
+					<button class="timeAdder" data-timeValue="300">05:00</button>
+				</div>
 				<button id="timerButton">Start</button>
 			</div>
 		</div>
