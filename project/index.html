@@ -33,7 +33,7 @@
 					<h1>:</h1>
 					<h1 id="stopwatchMS">000</h1>
 				</div>
-				<div class="buttonContainer">
+				<div class="buttonContainer threeFR">
 					<button id="start">Start</button>
 					<button id="lap">Lap</button>
 					<button id="reset">Reset</button>
@@ -45,19 +45,27 @@
 		</div>
 		<!-- Timer container -->
 		<div id="timerContainer" class="clockContainer notVisible" data-vis="timerContainer">
-			<div class="container time c">
+			<div class="container">
 				<div class="time">
-					<h1 id="timerMinute">00</h1>
+					<div>
+						<button class="minValueChange" data-minValueChange="+">+</button>
+						<h1 id="timerMinute">00</h1>
+						<button class="minValueChange" data-minValueChange="-">-</button>
+					</div>
 					<h1>:</h1>
-					<h1 id="timerSecond">10</h1>
+					<div>
+						<button>+</button>
+						<h1 id="timerSecond">00</h1>
+						<button>-</button>
+					</div>
 				</div>
-				<div class="buttonContainer">
+				<div class="buttonContainer threeFR">
 					<button class="timeAdder" data-timeValue="30">00:30</button>
 					<button class="timeAdder" data-timeValue="60">01:00</button>
 					<button class="timeAdder" data-timeValue="300">05:00</button>
 				</div>
 			</div>
-			<div class="container time">
+			<div class="container buttonContainer twoFR">
 				<button id="timerButton">Start</button>
 				<button id="timerResetButton">Reset</button>
 			</div>

@@ -72,3 +72,26 @@ timerResetButton.addEventListener("click", () => {
 	timerMinute.innerHTML = "00"
 	timerSecond.innerHTML = "00"
 });
+
+//Mini value change handler
+
+const minValueChange = document.querySelectorAll(".minValueChange");
+minValueChange.forEach((mvButt) => {
+	mvButt.addEventListener("click", () => {
+		if (timerActivationHandler === false) {
+			let mvButtValue = mvButt.getAttribute("data-minValueChange");
+			let valueToChange = Number(timerMinute.innerHTML);
+			if (mvButtValue === "+") {
+					timerMinute.innerHTML = String(valueToChange + 1).padStart(2,"0");;
+			} else {
+				if (valueToChange != 0) {
+					timerMinute.innerHTML = String(valueToChange - 1).padStart(2,"0");;
+				} else {
+					return;
+				}
+			}
+		} else {
+			return;
+		}
+	});
+});
