@@ -73,7 +73,7 @@ timerResetButton.addEventListener("click", () => {
 	timerSecond.innerHTML = "00"
 });
 
-//Mini value change handler
+//Mini minute value change handler
 
 const minValueChange = document.querySelectorAll(".minValueChange");
 minValueChange.forEach((mvButt) => {
@@ -86,6 +86,29 @@ minValueChange.forEach((mvButt) => {
 			} else {
 				if (valueToChange != 0) {
 					timerMinute.innerHTML = String(valueToChange - 1).padStart(2,"0");;
+				} else {
+					return;
+				}
+			}
+		} else {
+			return;
+		}
+	});
+});
+
+//Mini seconds value change handler
+
+const secValueChange = document.querySelectorAll(".secValueChange");
+secValueChange.forEach((mvButt) => {
+	mvButt.addEventListener("click", () => {
+		if (timerActivationHandler === false) {
+			let mvButtValue = mvButt.getAttribute("data-minValueChange");
+			let valueToChange = Number(timerSecond.innerHTML);
+			if (mvButtValue === "+") {
+					timerSecond.innerHTML = String(valueToChange + 1).padStart(2,"0");;
+			} else {
+				if (valueToChange != 0) {
+					timerSecond.innerHTML = String(valueToChange - 1).padStart(2,"0");;
 				} else {
 					return;
 				}
