@@ -75,7 +75,7 @@ timerResetButton.addEventListener("click", () => {
 
 //Mini minute value change handler
 
-const minValueChange = document.querySelectorAll(".minValueChange");
+const minValueChange = document.querySelectorAll("[data-minValueChange]");
 minValueChange.forEach((mvButt) => {
 	mvButt.addEventListener("click", () => {
 		if (timerActivationHandler === false) {
@@ -98,11 +98,11 @@ minValueChange.forEach((mvButt) => {
 
 //Mini seconds value change handler
 
-const secValueChange = document.querySelectorAll(".secValueChange");
+const secValueChange = document.querySelectorAll("[data-secValueChange]");
 secValueChange.forEach((mvButt) => {
 	mvButt.addEventListener("click", () => {
 		if (timerActivationHandler === false) {
-			let mvButtValue = mvButt.getAttribute("data-minValueChange");
+			let mvButtValue = mvButt.getAttribute("data-secValueChange");
 			let valueToChange = Number(timerSecond.innerHTML);
 			if (mvButtValue === "+") {
 					timerSecond.innerHTML = String(valueToChange + 1).padStart(2,"0");;
