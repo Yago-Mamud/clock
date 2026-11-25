@@ -13,155 +13,92 @@ html {
     /* 1 rem = 10px */
     font-size: 62.5%; 
 }
-/* TEXT */
-.lapClass {
-	font-size: 32px;
+:root {
+	/* BACKGROUDNS */
+	--backgroundMain: #F3F3F3;
+	/* SOLID COLORS */
+	--green: #27AE60;
+	--green2: #239654;
+	/* TEXT */
+	--text1: #000000;
+	--text2: #E0E0E0;
 }
 /* GENERAL */
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	color: #000000;
+	color: var(--text1);
 	font-family:'main';
-	user-select: none;
 }
 body {
-	height: 100vh;
-	overflow: hidden;
-	background-color: #7d9fba;
-	background-image: linear-gradient(to bottom right, #7d9fba, #5d7a91, #7d9fba);
+	background-color: #F1F1F1;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 /* HEADER */
-header, .time {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 header {
-	min-height: 6rem;
-	padding: 0 1rem 0 1rem;
-	margin: 0 1rem 0 1rem;
 	position: sticky;
 	top: 0;
-	background:transparent;
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, #edf7ff, #c5d7e6, #edf7ff) 1;
-	gap: 2.5rem;
+	width: 100%;
+	height: 6rem;
+	background-color: #C3C3C3;
+	background-image: linear-gradient(to top right, #F3F3F3, #E3E3E3, #F3F3F3 );
+	box-shadow: 0 0 8px #3A3A3A;
+	display: flex;
+	align-items: center;
+	padding: 2rem 2rem;
+	border-bottom: 2px solid #D2D2D2;
+	gap: 3rem;
 }
-.swapButton {
+header h1 {
+	font-family:'bold';
 	font-size: 2.5rem;
 	transition: 0.1s;
 }
-.swapButton:hover {
+header h1:hover {
 	transform: scale(1.1);
 	cursor: pointer;
 }
-body, main, #lapContainer, .flexColumn {
-    display: flex;
-    flex-direction: column;
-}
 /* CONTAINERS */
 main {
-	justify-content: center;
-	flex: 1;
-	width: 100%;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-items: center;
-	min-height: 0;
-}
-.time {
-	gap: 0.5rem;
-	font-size: 2rem;
-	font-variant-numeric: tabular-nums;
-	min-width: 20rem;
-	min-height: 10rem;
 	justify-content: center;
-	position: relative;
-}
-.time h1 {
-	font-size: 6rem;
-}
-.time h1, .time p {
-	background-image: linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: transparent; 
-}
-.clockContainer {
-	display: grid;
+	height: 100%;
+	flex: 1;
 }
 .container {
-	border: solid 2px transparent;
-	border-radius: 8px; 
-	background:
-		linear-gradient(to bottom right, #405769, #344757, #405769) padding-box,
-		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
-	box-shadow: 0px 0px 12px #303030;
+	border: 2px solid #C3C3C3;
+	border-radius: 8px;
+	box-shadow: 0px 0px 12px #3A3A3A;
+	height: 100%;
+	width: 60%;
+	background-color: #FFFFFF;
+	display: none;
+}
+.clock {
+	grid-template-columns: repeat(3, 1fr);
+	text-align: center;
+	justify-content: center;
 	padding: 4rem;
-}
-#clockContainer {
-	padding: 2rem;
-	width: 40%;
-	height: 60%;
-}
-#stopwatchContainer, #timerContainer {
-	height: 80%;
-	grid-template-columns: 60% 1fr;
-	gap: 2rem;
-	align-items: center;
-	padding: 2rem;
-}
-#lapContainer {
-	justify-content: start;
-	max-height: 30rem;
-	overflow-y: auto;
-	font-size: 0.5rem;
-}
-.itemAligner {
-	align-items: center;
-}
-/* INTERACTION */
-button {
-	border: solid 2px transparent;
-	background:
-		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) padding-box,
-		linear-gradient(to bottom right, #edf7ff, #c5d7e6, #edf7ff) border-box;
-	border-radius: 12px;
-	font-size: 2rem;
-	padding: 2rem;
+	font-variant-numeric: tabular-nums;
 	transition: 0.1s;
-	width: 100%;
-	font-variant: tabular-nums;
 }
-button:hover {
-	opacity: 0.7;
-	cursor: pointer;
-	transform: scale(1.05);
+.clock:hover {
+	transform: scale(1.1);
 }
-	/* button containers */
-	.buttonContainer {
-		display: grid;
-		gap: 2rem;
-	}
-	.threeFR {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	.twoFR {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	.timeValueChange {
-		font-size: 3rem;
-		opacity: 0.8;
-		transition: 0.2s;
-	}
-	.timeValueChange:hover {
-		transform: scale(1.3);
-		cursor: pointer;
-		opacity: 1;
-	}
-/*has to be at the end to overwrite the rest*/
-.notVisible {
-	display: none !important;
+.clock h1 {
+	font-size: 8rem;
+}
+/* MUST BE PLACED LAST ON CSS */
+.visible {
+	display: grid !important;
+}
+.active {
+	color: #FFFFFF !important;
+	-webkit-text-stroke: 4px #111827;
+	paint-order: stroke fill;
 }

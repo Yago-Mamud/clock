@@ -5,75 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock</title>
     <link rel="stylesheet" href="style.css">
+	<link rel="icon" href="assets\images\favicon.png" sizes="any">
 </head>
 <body>
 	<header>
-		<p class="swapButton" data-target="clockContainer">Clock</p>
-		<p class="swapButton" data-target="stopwatchContainer">Stopwatch</p>
-		<p class="swapButton" data-target="timerContainer">Timer</p>
+		<h1 class="changeTab active" data-target="clockTab">Clock</h1>
+		<h1 class="changeTab" data-target="timerTab">Timer</h1>
+		<h1 class="changeTab" data-target="stopwatchTab">Stopwatch</h1>
 	</header>
-	<main>
-		<!-- Clock container -->
-		<div id="clockContainer" class="clockContainer container" data-vis="clockContainer">
-			<div class="time">
-				<h1 id="hours">0</h1>
-				<h1>:</h1>
-				<h1 id="minutes">0</h1>
-				<h1>:</h1>
-				<h1 id="seconds">0</h1>
-			</div>
+	<!-- CLOCK CONTAINER -->
+	<main> 
+		<div id="clockTab" class="container clock visible">
+			<h1 id="hour"></h1>
+			<h1 id="minute"></h1>
+			<h1 id="second"></h1>
 		</div>
-		<!-- Stopwatch container -->
-		<div id="stopwatchContainer" class="clockContainer notVisible" data-vis="stopwatchContainer">
-			<div class="container">
-				<div class="time">
-					<h1 id="stopwatchM">00</h1>
-					<h1>:</h1>
-					<h1 id="stopwatchS">00</h1>
-					<h1>:</h1>
-					<h1 id="stopwatchMS">000</h1>
-				</div>
-				<div class="buttonContainer threeFR">
-					<button id="start">Start</button>
-					<button id="lap">Lap</button>
-					<button id="reset">Reset</button>
-				</div>
-			</div>
-			<div class="container">
-				<div id="lapContainer" class="time clock"></div>
-			</div>
+		<div id="timerTab" class="container">
+			<h1>timer</h1>
 		</div>
-		<!-- Timer container -->
-		<div id="timerContainer" class="clockContainer notVisible" data-vis="timerContainer">
-			<div class="container">
-				<div class="time">
-					<div class="flexColumn itemAligner">
-						<p class="timeValueChange" data-minValueChange="+">+</p>
-						<h1 id="timerMinute">00</h1>
-						<p class="timeValueChange" data-minValueChange="-">-</p>
-					</div>
-					<h1>:</h1>
-					<div class="flexColumn itemAligner">
-						<p class="timeValueChange" data-secValueChange="+">+</p>
-						<h1 id="timerSecond">00</h1>
-						<p class="timeValueChange" data-secValueChange="-">-</p>
-					</div>
-				</div>
-				<div class="buttonContainer threeFR">
-					<button class="timeAdder" data-timeValue="30">00:30</button>
-					<button class="timeAdder" data-timeValue="60">01:00</button>
-					<button class="timeAdder" data-timeValue="300">05:00</button>
-				</div>
-			</div>
-			<div class="container buttonContainer twoFR">
-				<button id="timerButton">Start</button>
-				<button id="timerResetButton">Reset</button>
-			</div>
+		<div id="stopwatchTab" class="container">
+			<h1>stopwatch</h1>
 		</div>
 	</main>
-<script src="scripts/watch.js"></script>
-<script src="scripts/stopwatch.js"></script>
-<script src="scripts/visibilityHandler.js"></script>
-<script src="scripts/timer.js"></script>
+<script src="scripts.js">
+</script>
 </body>
 </html>
