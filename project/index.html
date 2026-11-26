@@ -9,20 +9,27 @@
 </head>
 <body>
 	<header>
-		<h1 class="changeTab active" data-target="clockTab">Clock</h1>
-		<h1 class="changeTab" data-target="timerTab">Timer</h1>
+		<h1 class="changeTab" data-target="clockTab">Clock</h1>
+		<h1 class="changeTab active" data-target="timerTab">Timer</h1>
 		<h1 class="changeTab" data-target="stopwatchTab">Stopwatch</h1>
 	</header>
-	<!-- CLOCK CONTAINER -->
 	<main> 
-		<div id="clockTab" class="container clock visible">
+		<!-- CLOCK -->
+		<div id="clockTab" class="container clock">
 			<h1 id="hour"></h1>
 			<h1 id="minute"></h1>
 			<h1 id="second"></h1>
 		</div>
-		<div id="timerTab" class="container">
-			<h1>timer</h1>
+		<!-- TIMER -->
+		<div id="timerTab" class="container visible">
+			<div class="timer">
+				<input id="timerH" class="timerInput" type="text" maxlength="2" placeholder="00" value="00"></input>
+				<input id="timerM" class="timerInput" type="text" maxlength="2" placeholder="00" value="00"></input>
+				<input id="timerS" class="timerInput" type="text" maxlength="2" placeholder="00" value="00"></input>
+			</div>
+			<button id="timerStartButton">START</button>
 		</div>
+		<!-- STOPWATCH -->
 		<div id="stopwatchTab" class="container">
 			<h1>stopwatch</h1>
 		</div>

@@ -1,4 +1,4 @@
-/* TAB SWITCHING HANDLER */
+// TAB SWITCHING HANDLER 
 const buttons = document.querySelectorAll(".changeTab")
 const containers = document.querySelectorAll(".container")
 buttons.forEach((butt) => {
@@ -24,7 +24,7 @@ buttons.forEach((butt) => {
 	});
 });
 
-/* CLOCK HANDLER */
+// CLOCK HANDLER 
 const hour = document.getElementById("hour");
 const minute = document.getElementById("minute");
 const second = document.getElementById("second");
@@ -48,3 +48,34 @@ const loop = setInterval( function() {
 	}
 
 },1000)
+
+//TIMER HANDLER
+const timerInput = document.querySelectorAll(".timerInput");
+//prevents wrong inputs by the user
+timerInput.forEach((current) => {
+	current.addEventListener("focus", () => {
+		current.select();
+	})
+	current.addEventListener("input", () => {
+		let digits = current.value.replace(/\D/g, "")
+		if (digits !== "" && Number(digits)>59) {
+			digits = "59";
+		}
+		current.value = digits
+	});
+	current.addEventListener("blur", () => {
+		if (current.value.length === 1 ) {
+			current.value = "0" + current.value
+		}
+	});
+});
+
+//handler the timer
+const timerStartButton = document.getElementById("timerStartButton");
+
+timerStartButton.addEventListener("click", () => {
+	timerInput.forEach((currentTimerInput) => {
+		currentTimerInput.disabled = !currentTimerInput.disabled;
+	});
+	timerStartButton.innerText = timerStartButton.innerText === "START" ? "STOP" : "START"
+});
