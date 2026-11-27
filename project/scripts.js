@@ -70,12 +70,51 @@ timerInput.forEach((current) => {
 	});
 });
 
-//handler the timer
+//handles the timer
 const timerStartButton = document.getElementById("timerStartButton");
-
+const timerH = document.getElementById("timerH");
+const timerM = document.getElementById("timerM");
+const timerS = document.getElementById("timerS");
+let isTimerActive = false;
+let timerLoop
 timerStartButton.addEventListener("click", () => {
+	if (!isTimerActive) {
+		isTimerActive = !isTimerActive;
+		timerInput.forEach((currentTimerInput) => {
+			currentTimerInput.disabled = !currentTimerInput.disabled;
+		});
+		//handles the countdown
+		let timerSValue = Number(timerS.value);
+		if (timerS.value === "00" || timerS.value === "") {
+			timerS.value = "";
+			timerStopper();
+			return;
+		}
+		timerLoop = setInterval(() => {
+			timerSValue--;
+			if (timerSValue < 10) {
+				timerS.value = "0" + timerSValue;
+			} else {
+				timerS.value = timerSValue;
+			}
+			if (timerS.value === "00") {
+				timerStopper();
+				return
+			} 
+		},1000);
+		timerStartButton.innerText = "STOP"
+	} else {
+		timerStopper();
+	}
+});
+function timerStopper() {
+	isTimerActive = !isTimerActive;
+	clearInterval(timerLoop);
+	timerS.value = ""
+	//input handler
 	timerInput.forEach((currentTimerInput) => {
 		currentTimerInput.disabled = !currentTimerInput.disabled;
 	});
-	timerStartButton.innerText = timerStartButton.innerText === "START" ? "STOP" : "START"
-});
+	//button text handler
+	timerStartButton.innerText = "START"
+}
